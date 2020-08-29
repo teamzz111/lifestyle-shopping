@@ -4,6 +4,7 @@ import Logo from 'src/components/atoms/logo';
 import { Input, Drawer, Menu } from 'antd';
 import CartButton from 'src/components/atoms/iconButtons/cartButton';
 import ListButton from 'src/components/atoms/iconButtons/listButton';
+import LoginButton from 'src/components/atoms/loginButton';
 
 const { Search } = Input;
 
@@ -20,13 +21,14 @@ const ResponsiveNavBar: React.FC<ResponsiveNavBarProps> = ({ onSearch }) => {
 
   return (
     <CustomHeaderResponsive className="header">
-      <Drawer placement="right" closable={false} onClose={onToggleDrawer} visible={drawerVisible}>
+      <Drawer placement="left" closable={false} onClose={onToggleDrawer} visible={drawerVisible}>
         <Menu defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">Accesorios para carros</Menu.Item>
-          <Menu.Item key="2">Option 1</Menu.Item>
-          <Menu.Item key="3">Option 1</Menu.Item>
-          <Menu.Item key="4">Option 1</Menu.Item>
+          <Menu.Item key="2">Lifestyle</Menu.Item>
+          <Menu.Item key="3">Ofertas</Menu.Item>
+          <Menu.Item key="4">Novedades</Menu.Item>
         </Menu>
+        <LoginButton />
       </Drawer>
       <NavActionCont>
         <ListButton onClick={onToggleDrawer} />

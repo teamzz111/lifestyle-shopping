@@ -1,5 +1,4 @@
 import * as React from 'react';
-import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SEO from 'src/components/organisms/SEO';
@@ -11,6 +10,7 @@ const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
+import 'src/assets/styles/index.css';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
   // site metadata coming from gatsby config
