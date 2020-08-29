@@ -4,7 +4,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
-import SideMenuLayout from 'src/components/organisms/sideMenu';
+import SideMenuLayout from 'src/components/molecules/sideMenu';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
