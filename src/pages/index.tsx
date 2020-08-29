@@ -2,6 +2,9 @@ import * as React from 'react';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import SEO from 'src/components/organisms/SEO';
+import { graphql } from 'gatsby';
+import SideMenuLayout from 'src/components/molecules/sideMenu';
 import NavBar from 'src/components/molecules/nav-bar';
 
 const { SubMenu } = Menu;
@@ -9,9 +12,14 @@ const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
 
-const Home: React.FC = () => {
+const Home: React.FC<IHomeProps> = ({ data }) => {
+  // site metadata coming from gatsby config
+  const siteTitle = data.site.siteMetadata.title;
+  const siteDescription = data.site.siteMetadata.description;
+
   return (
     <React.Fragment>
+      <SEO title={siteTitle} description={siteDescription} />
       <NavBar />
       <Layout>
         <Layout>
@@ -21,6 +29,7 @@ const Home: React.FC = () => {
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}>
+              <SideMenuLayout />
               <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
                 <Menu.Item key="1">option1</Menu.Item>
                 <Menu.Item key="2">option2</Menu.Item>
@@ -42,11 +51,6 @@ const Home: React.FC = () => {
             </Menu>
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
             <Content
               className="site-layout-background"
               style={{
@@ -63,3 +67,14 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`;
