@@ -1,5 +1,16 @@
-import React from "react"
+import * as React from 'react';
+import 'antd/dist/antd.css';
+import { Button } from 'antd';
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+const Home: React.FC = () => {
+  return (
+    <React.Fragment>
+      <div>Hello world!</div>
+      <Button type="primary" style={{ marginLeft: 8 }}>
+        Primary Button
+      </Button>
+    </React.Fragment>
+  );
+};
+
+export default Home;
