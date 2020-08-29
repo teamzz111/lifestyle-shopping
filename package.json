@@ -1,0 +1,19 @@
+{
+  "name": "gatsby-shopping",
+  "version": "1.0.0",
+  "description": "technical test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamzz111/gatsby-shopping.git"
+  },
+  "author": "Andres Largo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamzz111/gatsby-shopping/issues"
+  },
+  "homepage": "https://github.com/teamzz111/gatsby-shopping#readme"
+}
