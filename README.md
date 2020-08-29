@@ -1,1 +1,3 @@
-# gatsby-shopping
+# lifestyle-shopping
+
+Technical test using gatsby with typescript
