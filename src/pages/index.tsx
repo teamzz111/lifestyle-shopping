@@ -2,13 +2,19 @@ import * as React from 'react';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import SEO from 'src/components/organisms/SEO';
+import { graphql } from 'gatsby';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-const Home: React.FC = () => {
+const Home: React.FC<IHomeProps> = ({ data }) => {
+  const siteTitle = data.site.siteMetadata.title;
+  const siteDescription = data.site.siteMetadata.description;
+
   return (
     <React.Fragment>
+      <SEO title={siteTitle} description={siteDescription} />
       <Layout>
         <Header className="header">
           <div className="logo" />
@@ -67,3 +73,14 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`;
