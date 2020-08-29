@@ -5,9 +5,12 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
+import NavBar from 'src/components/molecules/nav-bar';
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
+
+import 'antd/dist/antd.css';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
   // site metadata coming from gatsby config
@@ -17,15 +20,8 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
+      <NavBar />
       <Layout>
-        <Header className="header">
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
-        </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">
             <Menu
