@@ -5,6 +5,9 @@ import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
 import NavBar from 'src/components/molecules/nav-bar';
+import { categoryOptions } from './resources';
+import ColorPalette from 'src/components/molecules/colorPalette';
+import Slider from 'src/components/atoms/slider';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -35,30 +38,23 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
       <NavBar />
       <Layout>
         <Layout>
-          <Sider width={200} className="site-layout-background">
+          <Sider width={262} className="site-layout-background">
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}>
-              <SideMenuLayout />
-              <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
-                <Menu.Item key="1">option1</Menu.Item>
-                <Menu.Item key="2">option2</Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
+              <SideMenuLayout title="Lifestyle" />
+              <SubMenu key="sub1" title="Categorías">
+                {categoryOptions.map((value: IOption) => (
+                  <Menu.Item key={value.id}>{value.value}</Menu.Item>
+                ))}
               </SubMenu>
-              <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-                <Menu.Item key="5">option5</Menu.Item>
-                <Menu.Item key="6">option6</Menu.Item>
-                <Menu.Item key="7">option7</Menu.Item>
-                <Menu.Item key="8">option8</Menu.Item>
+              <SubMenu key="sub2" title="Colores">
+                <ColorPalette />
               </SubMenu>
               <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-                <Menu.Item key="9">option9</Menu.Item>
-                <Menu.Item key="10">option10</Menu.Item>
-                <Menu.Item key="11">option11</Menu.Item>
-                <Menu.Item key="12">option12</Menu.Item>
+                <Slider />
               </SubMenu>
             </Menu>
           </Sider>
