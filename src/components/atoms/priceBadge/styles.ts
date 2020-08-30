@@ -10,7 +10,7 @@ export const PriceContainer = styled.div`
 `;
 
 export const BoxWrapperPrice = styled.div`
-  padding: 13px 10px;
+  padding: 13px 4px;
   border: 1px solid black;
   display: flex;
   align-items: center;
