@@ -8,7 +8,7 @@ interface IColorProps {
 }
 
 const Color: React.FC<IColorProps> = ({ color, border }) => {
-  return <ContainerSquare color={color} border={border} />;
+  return <ContainerSquare color={color} borderColor={border} />;
 };
 
 export default Color;
