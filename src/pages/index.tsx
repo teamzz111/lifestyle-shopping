@@ -7,6 +7,7 @@ import SideMenuLayout from 'src/components/molecules/sideMenu';
 import NavBar from 'src/components/molecules/nav-bar';
 import { categoryOptions } from './resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
+import Slider from 'src/components/atoms/slider';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -41,10 +42,7 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
                 <ColorPalette />
               </SubMenu>
               <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-                <Menu.Item key="9">option9</Menu.Item>
-                <Menu.Item key="10">option10</Menu.Item>
-                <Menu.Item key="11">option11</Menu.Item>
-                <Menu.Item key="12">option12</Menu.Item>
+                <Slider />
               </SubMenu>
             </Menu>
           </Sider>
