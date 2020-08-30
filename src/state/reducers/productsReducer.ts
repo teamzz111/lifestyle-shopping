@@ -1,6 +1,6 @@
 import { RECEIVE_PRODUCTS, REQUEST_PRODUCTS } from 'src/actions/redux';
 
-export interface IRequestProductsAction {
+export interface IrequestCarProductsAction {
   type: typeof REQUEST_PRODUCTS;
 }
 

@@ -14,7 +14,7 @@ const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
-import { requestProducts } from 'src/actions/redux';
+import { requestCarProducts } from 'src/actions/redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'src/state';
 
@@ -23,13 +23,11 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
 
-  const state: IProduct[] = useSelector((state: RootState) => state.productsReducer);
+  const products: IProduct[] = useSelector((state: RootState) => state.productsReducer);
   const dispatch = useDispatch();
 
-  console.log(state);
-
   React.useEffect(() => {
-    dispatch(requestProducts());
+    dispatch(requestCarProducts());
   }, []);
 
   return (
