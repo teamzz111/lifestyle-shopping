@@ -4,7 +4,7 @@ import { NotificationOutlined } from '@ant-design/icons';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
 import { categoryOptions } from 'src/pages/resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
-import Slider from 'src/components/atoms/slider';
+import SliderMolecule from 'src/components/molecules/sliderPrice';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -12,7 +12,12 @@ const { Content, Sider } = Layout;
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
 
-const MainPage: React.FC = () => {
+interface IMainPageProps {
+  onChangePrice: (e: any) => void;
+  priceValues: number[];
+}
+
+const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
   return (
     <React.Fragment>
       <Layout>
@@ -32,8 +37,8 @@ const MainPage: React.FC = () => {
               <SubMenu key="sub2" title="Colores">
                 <ColorPalette />
               </SubMenu>
-              <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-                <Slider />
+              <SubMenu key="sub3" title="Precio">
+                <SliderMolecule onChangePrice={onChangePrice} priceValues={priceValues} />
               </SubMenu>
             </Menu>
           </Sider>

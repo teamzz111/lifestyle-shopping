@@ -12,11 +12,15 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
 
+  // states
+  const [priceValues, setPriceValues] = React.useState<number[]>([20, 50]);
+  const onChangePrice = (value: number[]) => setPriceValues(value);
+
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
       <NavBar />
-      <MainPage />
+      <MainPage onChangePrice={onChangePrice} priceValues={priceValues} />
     </React.Fragment>
   );
 };
