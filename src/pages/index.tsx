@@ -1,7 +1,6 @@
 import * as React from 'react';
-import 'antd/dist/antd.css';
-import { Layout, Menu } from 'antd';
-import { LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
@@ -13,6 +12,7 @@ const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
+import 'src/assets/styles/index.css';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
   // site metadata coming from gatsby config
