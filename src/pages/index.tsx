@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
@@ -11,11 +11,23 @@ const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
+import { requestProducts } from 'src/actions/redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from 'src/state';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
   // site metadata coming from gatsby config
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
+
+  const state: IProduct[] = useSelector((state: RootState) => state.productsReducer);
+  const dispatch = useDispatch();
+
+  console.log(state);
+
+  React.useEffect(() => {
+    dispatch(requestProducts());
+  }, []);
 
   return (
     <React.Fragment>

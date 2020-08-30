@@ -14,7 +14,7 @@ interface DesktopNavBarProps {
 const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch }) => {
   return (
     <CustomHeader className="header">
-      <CustomMenu mode="horizontal" defaultSelectedKeys={['2']}>
+      <CustomMenu mode="horizontal" defaultSelectedKeys={['1']}>
         <CustomMenu.Item key="1">Accesorios para carros</CustomMenu.Item>
         <CustomMenu.Item key="2">Lifestyle</CustomMenu.Item>
         <CustomMenu.Item key="3">Ofertas</CustomMenu.Item>
