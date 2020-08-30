@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import 'antd/dist/antd.css';
+import { Layout, Menu } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
