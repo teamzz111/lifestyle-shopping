@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Layout, Menu } from 'antd';
-import { NotificationOutlined } from '@ant-design/icons';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
 import { categoryOptions } from 'src/pages/resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
 import SliderMolecule from 'src/components/molecules/sliderPrice';
-import { SliderMainContainer } from './styles';
+import { SliderMainContainer, LayoutStyled } from './styles';
+import ResponsiveHead from './responsiveHead';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -43,16 +43,16 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
               </SubMenu>
             </Menu>
           </SliderMainContainer>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <LayoutStyled>
             <Content
               className="site-layout-background"
               style={{
                 padding: 24,
                 margin: 0,
               }}>
-              Content
+              <ResponsiveHead />
             </Content>
-          </Layout>
+          </LayoutStyled>
         </Layout>
       </Layout>
     </React.Fragment>
