@@ -42,14 +42,15 @@ export const TitleCard = styled(Title)`
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 `;
 
 export const LeftContainer = styled.div`
-  width: 65%;
+  width: 101%;
 `;
 
 export const RightContainer = styled.div`
-  width: 35%;
+  width: 1%;
   display: flex;
   justify-content: center;
   align-items: center;

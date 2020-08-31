@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Typography, Modal, Menu } from 'antd';
 import { MobileContainer, ButtonStyled, LeftWrapper, RightWrapper } from './styles';
 import { categoryOptions } from 'src/pages/resources';
-import SideMenuLayout from 'src/components/molecules/sideMenu';
 import ColorPalette from 'src/components/molecules/colorPalette';
 import SliderMolecule from 'src/components/molecules/sliderPrice';
 

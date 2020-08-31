@@ -12,6 +12,7 @@ export const SliderMainContainer = styled(Sider)`
 
 export const LayoutStyled = styled(Layout)`
   padding: 0 24px 24px;
+  background: #fff;
   @media ${device.mobile} {
     padding: 0;
   }

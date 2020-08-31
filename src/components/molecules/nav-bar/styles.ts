@@ -26,7 +26,7 @@ export const NavActions = styled.div`
   align-items: center;
   @media ${device.mobile} {
     padding: 0;
-    justify-content: space-evenly;
+    justify-content: end;
   }
 `;
 
