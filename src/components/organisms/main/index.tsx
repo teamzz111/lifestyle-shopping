@@ -8,19 +8,21 @@ import { SliderMainContainer, LayoutStyled } from './styles';
 import ResponsiveHead from './responsiveHead';
 
 const { SubMenu } = Menu;
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
+import Card from 'src/components/atoms/card';
 
 interface IMainPageProps {
   onChangePrice: (e: any) => void;
   priceValues: number[];
   onOpenModal: () => void;
   modal: boolean;
+  data: [];
 }
 
-const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpenModal, modal }) => {
+const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpenModal, modal, data }) => {
   return (
     <React.Fragment>
       <Layout>
@@ -51,6 +53,9 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpen
               style={{
                 padding: 24,
                 margin: 0,
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-evenly',
               }}>
               <ResponsiveHead
                 onOpenModal={onOpenModal}
@@ -58,6 +63,9 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpen
                 onChangePrice={onChangePrice}
                 priceValues={priceValues}
               />
+              {data.map((value: ItemCard) => {
+                return <Card key={value.id} {...value} />;
+              })}
             </Content>
           </LayoutStyled>
         </Layout>

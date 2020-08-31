@@ -49,6 +49,7 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
         priceValues={priceValues}
         onOpenModal={onOpenModal}
         modal={modalFilter}
+        data={products}
       />
     </React.Fragment>
   );

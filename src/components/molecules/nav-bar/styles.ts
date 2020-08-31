@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Layout, Menu, Drawer } from 'antd';
+import { Layout, Menu } from 'antd';
 import { device } from 'src/utils/responsiveTemplate';
 
 const { Header } = Layout;
@@ -26,7 +26,7 @@ export const NavActions = styled.div`
   align-items: center;
   @media ${device.mobile} {
     padding: 0;
-    justify-content: space-evenly;
+    justify-content: end;
   }
 `;
 

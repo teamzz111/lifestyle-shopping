@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'src/assets/images/80142445969_01.png';
 import {
   ImageLogo,
   Text,
@@ -14,16 +13,16 @@ import {
   IconCart
 } from './styles';
 
-const Card: React.FC = () => {
+const Card: React.FC<ItemCard> = ( {discount, name, photo, price, subcategory} ) => {
   return (
     <MainWrapper>
-      <ImageLogo src={Image} />
-      <TitleCard level={5}>Nombre del producto</TitleCard>
+      <ImageLogo src={require('src/assets/images/' + photo)} />
+      <TitleCard level={5}>{name}</TitleCard>
       <Container>
         <LeftContainer>
-          <Text>Sub-categoría</Text>
-          <UnderText>$213123</UnderText>
-          <TitleCard level={5}>$1993000</TitleCard>
+          <Text>{subcategory}</Text>
+          <UnderText>${(price + discount).toLocaleString()}</UnderText>
+          <TitleCard level={5}>${(price - discount).toLocaleString()}</TitleCard>
         </LeftContainer>
         <RightContainer>
           <ButtonCart
