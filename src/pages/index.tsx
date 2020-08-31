@@ -6,6 +6,8 @@ import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
 import NavBar from 'src/components/molecules/nav-bar';
+import Card from 'src/components/atoms/card';
+
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -58,7 +60,7 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
                 padding: 24,
                 margin: 0,
               }}>
-              Content
+              <Card/>
             </Content>
           </Layout>
         </Layout>
