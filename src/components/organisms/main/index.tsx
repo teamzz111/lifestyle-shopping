@@ -5,6 +5,7 @@ import SideMenuLayout from 'src/components/molecules/sideMenu';
 import { categoryOptions } from 'src/pages/resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
 import SliderMolecule from 'src/components/molecules/sliderPrice';
+import { SliderMainContainer } from './styles';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -22,7 +23,7 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
     <React.Fragment>
       <Layout>
         <Layout>
-          <Sider width={262} className="site-layout-background">
+          <SliderMainContainer width={262} className="site-layout-background">
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
@@ -41,7 +42,7 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
                 <SliderMolecule onChangePrice={onChangePrice} priceValues={priceValues} />
               </SubMenu>
             </Menu>
-          </Sider>
+          </SliderMainContainer>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content
               className="site-layout-background"
