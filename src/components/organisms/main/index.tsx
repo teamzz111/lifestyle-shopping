@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Layout, Menu } from 'antd';
-import { NotificationOutlined } from '@ant-design/icons';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
 import { categoryOptions } from 'src/pages/resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
-import Slider from 'src/components/atoms/slider';
+import SliderMolecule from 'src/components/molecules/sliderPrice';
+import { SliderMainContainer, LayoutStyled } from './styles';
+import ResponsiveHead from './responsiveHead';
 
 const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
@@ -12,12 +13,19 @@ const { Content, Sider } = Layout;
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
 
-const MainPage: React.FC = () => {
+interface IMainPageProps {
+  onChangePrice: (e: any) => void;
+  priceValues: number[];
+  onOpenModal: () => void;
+  modal: boolean;
+}
+
+const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpenModal, modal }) => {
   return (
     <React.Fragment>
       <Layout>
         <Layout>
-          <Sider width={262} className="site-layout-background">
+          <SliderMainContainer width={262} className="site-layout-background">
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
@@ -32,21 +40,26 @@ const MainPage: React.FC = () => {
               <SubMenu key="sub2" title="Colores">
                 <ColorPalette />
               </SubMenu>
-              <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-                <Slider />
+              <SubMenu key="sub3" title="Precio">
+                <SliderMolecule onChangePrice={onChangePrice} priceValues={priceValues} />
               </SubMenu>
             </Menu>
-          </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          </SliderMainContainer>
+          <LayoutStyled>
             <Content
               className="site-layout-background"
               style={{
                 padding: 24,
                 margin: 0,
               }}>
-              Content
+              <ResponsiveHead
+                onOpenModal={onOpenModal}
+                modal={modal}
+                onChangePrice={onChangePrice}
+                priceValues={priceValues}
+              />
             </Content>
-          </Layout>
+          </LayoutStyled>
         </Layout>
       </Layout>
     </React.Fragment>
