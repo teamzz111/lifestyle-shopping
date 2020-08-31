@@ -50,7 +50,7 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
       <NavBar onSearchCategory={onSearchCategory} />
-      <MainPage />
+      <MainPage data = {products} />
     </React.Fragment>
   );
 };
