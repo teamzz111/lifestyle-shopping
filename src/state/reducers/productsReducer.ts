@@ -1,7 +1,17 @@
-import { RECEIVE_PRODUCTS, REQUEST_PRODUCTS } from 'src/actions/redux';
+import {
+  REQUEST_CAR_PRODUCTS,
+  REQUEST_LIFESTYLE_PRODUCTS,
+  REQUEST_OFFERS_PRODUCTS,
+  REQUEST_NEW_PRODUCTS,
+  RECEIVE_PRODUCTS,
+} from 'src/actions/redux';
 
-export interface IrequestCarProductsAction {
-  type: typeof REQUEST_PRODUCTS;
+export interface IRequestCarProductsAction {
+  type:
+    | typeof REQUEST_CAR_PRODUCTS
+    | typeof REQUEST_LIFESTYLE_PRODUCTS
+    | typeof REQUEST_OFFERS_PRODUCTS
+    | typeof REQUEST_NEW_PRODUCTS;
 }
 
 export interface IReceiveProductsAction {

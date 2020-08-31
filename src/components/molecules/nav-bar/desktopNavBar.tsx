@@ -9,12 +9,17 @@ const { Search } = Input;
 
 interface DesktopNavBarProps {
   onSearch: (value: string) => void;
+  onChangeCategory: (category: string) => void;
 }
 
-const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch }) => {
+const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch, onChangeCategory }) => {
+  const setOnSelect = ({ key }: any) => {
+    onChangeCategory(key);
+  };
+
   return (
     <CustomHeader className="header">
-      <CustomMenu mode="horizontal" defaultSelectedKeys={['1']}>
+      <CustomMenu mode="horizontal" defaultSelectedKeys={['1']} onSelect={setOnSelect}>
         <CustomMenu.Item key="1">Accesorios para carros</CustomMenu.Item>
         <CustomMenu.Item key="2">Lifestyle</CustomMenu.Item>
         <CustomMenu.Item key="3">Ofertas</CustomMenu.Item>

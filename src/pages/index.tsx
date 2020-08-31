@@ -7,7 +7,12 @@ import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
 import MainPage from 'src/components/organisms/main';
 import { useSelector, useDispatch } from 'react-redux';
-import { requestCarProducts } from 'src/actions/redux';
+import {
+  requestCarProducts,
+  requestLifestyleProducts,
+  requestOffersProducts,
+  requestNewProducts,
+} from 'src/actions/redux';
 import { RootState } from 'src/state';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
@@ -22,10 +27,30 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
     dispatch(requestCarProducts());
   }, []);
 
+  const onSearchCategory = (id: string) => {
+    switch (id) {
+      case '1':
+        dispatch(requestCarProducts());
+        break;
+      case '2':
+        console.log('dos');
+        dispatch(requestLifestyleProducts());
+        break;
+      case '3':
+        dispatch(requestOffersProducts());
+        break;
+      case '4':
+        dispatch(requestNewProducts());
+        break;
+      default:
+        dispatch(requestCarProducts());
+    }
+  };
+  console.log(products);
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
-      <NavBar />
+      <NavBar onSearchCategory={onSearchCategory} />
       <MainPage />
     </React.Fragment>
   );
