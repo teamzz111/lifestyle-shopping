@@ -4,16 +4,14 @@ import ResponsiveNavBar from './responsiveNavBar';
 
 interface NavBarProps {
   onSearchCategory: (id: string) => void;
+  onTypingSearch: (text: string) => void;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onSearchCategory }) => {
-  const onSearch = (value: string) => {
-    console.log(value);
-  };
+const NavBar: React.FC<NavBarProps> = ({ onSearchCategory, onTypingSearch }) => {
   return (
     <React.Fragment>
-      <DesktopNavBar onSearch={onSearch} onChangeCategory={onSearchCategory} />
-      <ResponsiveNavBar onSearch={onSearch} onChangeCategory={onSearchCategory} />
+      <DesktopNavBar onSearch={onTypingSearch} onChangeCategory={onSearchCategory} />
+      <ResponsiveNavBar onSearch={onTypingSearch} onChangeCategory={onSearchCategory} />
     </React.Fragment>
   );
 };

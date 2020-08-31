@@ -4,6 +4,7 @@ import Logo from 'src/components/atoms/logo';
 import { Input } from 'antd';
 import UserButton from 'src/components/atoms/iconButtons/userButton';
 import CartButton from 'src/components/atoms/iconButtons/cartButton';
+import { CATEGORIES } from 'src/utils/constants';
 
 const { Search } = Input;
 
@@ -19,11 +20,14 @@ const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch, onChangeCategor
 
   return (
     <CustomHeader className="header">
-      <CustomMenu mode="horizontal" defaultSelectedKeys={['1']} onSelect={setOnSelect}>
-        <CustomMenu.Item key="1">Accesorios para carros</CustomMenu.Item>
-        <CustomMenu.Item key="2">Lifestyle</CustomMenu.Item>
-        <CustomMenu.Item key="3">Ofertas</CustomMenu.Item>
-        <CustomMenu.Item key="4">Novedades</CustomMenu.Item>
+      <CustomMenu
+        mode="horizontal"
+        defaultSelectedKeys={[CATEGORIES.ACCESSORY]}
+        onSelect={setOnSelect}>
+        <CustomMenu.Item key={CATEGORIES.ACCESSORY}>Accesorios para carros</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.LIFESTYLE}>Lifestyle</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.OFFERS}>Ofertas</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.NEW}>Novedades</CustomMenu.Item>
       </CustomMenu>
       <NavActions>
         <NavActionCont>
