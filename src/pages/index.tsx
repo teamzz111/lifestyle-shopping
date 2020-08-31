@@ -6,50 +6,35 @@ import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
 import MainPage from 'src/components/organisms/main';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  requestCarProducts,
-  requestLifestyleProducts,
-  requestOffersProducts,
-  requestNewProducts,
-} from 'src/actions/redux';
+import { requestProducts } from 'src/actions/redux';
 import { RootState } from 'src/state';
+import { defaultFilter } from 'src/utils/constants/defaultFilter';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
-  // site metadata coming from gatsby config
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
+
+  const [filters, setFilters] = React.useState<IFilters>(defaultFilter);
 
   const products: IProduct[] = useSelector((state: RootState) => state.productsReducer);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(requestCarProducts());
-  }, []);
+    dispatch(requestProducts(filters));
+  }, [filters]);
 
   const onSearchCategory = (id: string) => {
-    switch (id) {
-      case '1':
-        dispatch(requestCarProducts());
-        break;
-      case '2':
-        console.log('dos');
-        dispatch(requestLifestyleProducts());
-        break;
-      case '3':
-        dispatch(requestOffersProducts());
-        break;
-      case '4':
-        dispatch(requestNewProducts());
-        break;
-      default:
-        dispatch(requestCarProducts());
-    }
+    setFilters((currentFilters) => ({ ...currentFilters, category: id }));
+  };
+
+  const onTypingSearch = (text: string) => {
+    setFilters((currentFilters) => ({ ...currentFilters, text: text }));
   };
   console.log(products);
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
-      <NavBar onSearchCategory={onSearchCategory} />
+      <NavBar onSearchCategory={onSearchCategory} onTypingSearch={onTypingSearch} />
       <MainPage />
     </React.Fragment>
   );
