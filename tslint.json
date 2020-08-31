@@ -5,5 +5,10 @@
     "prettier": true,
     "interface-name": false,
     "jsx-boolean-value": ["never"]
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules"
+    ]
   }
 }

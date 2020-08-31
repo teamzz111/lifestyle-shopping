@@ -4,21 +4,30 @@ import Logo from 'src/components/atoms/logo';
 import { Input } from 'antd';
 import UserButton from 'src/components/atoms/iconButtons/userButton';
 import CartButton from 'src/components/atoms/iconButtons/cartButton';
+import { CATEGORIES } from 'src/utils/constants';
 
 const { Search } = Input;
 
 interface DesktopNavBarProps {
   onSearch: (value: string) => void;
+  onChangeCategory: (category: string) => void;
 }
 
-const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch }) => {
+const DesktopNavBar: React.FC<DesktopNavBarProps> = ({ onSearch, onChangeCategory }) => {
+  const setOnSelect = ({ key }: any) => {
+    onChangeCategory(key);
+  };
+
   return (
     <CustomHeader className="header">
-      <CustomMenu mode="horizontal" defaultSelectedKeys={['2']}>
-        <CustomMenu.Item key="1">Accesorios para carros</CustomMenu.Item>
-        <CustomMenu.Item key="2">Lifestyle</CustomMenu.Item>
-        <CustomMenu.Item key="3">Ofertas</CustomMenu.Item>
-        <CustomMenu.Item key="4">Novedades</CustomMenu.Item>
+      <CustomMenu
+        mode="horizontal"
+        defaultSelectedKeys={[CATEGORIES.ACCESSORY]}
+        onSelect={setOnSelect}>
+        <CustomMenu.Item key={CATEGORIES.ACCESSORY}>Accesorios para carros</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.LIFESTYLE}>Lifestyle</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.OFFERS}>Ofertas</CustomMenu.Item>
+        <CustomMenu.Item key={CATEGORIES.NEW}>Novedades</CustomMenu.Item>
       </CustomMenu>
       <NavActions>
         <NavActionCont>

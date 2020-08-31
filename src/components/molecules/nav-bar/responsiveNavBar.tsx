@@ -5,28 +5,34 @@ import { Input, Drawer, Menu } from 'antd';
 import CartButton from 'src/components/atoms/iconButtons/cartButton';
 import ListButton from 'src/components/atoms/iconButtons/listButton';
 import LoginButton from 'src/components/atoms/loginButton';
+import { CATEGORIES } from 'src/utils/constants';
 
 const { Search } = Input;
 
 interface ResponsiveNavBarProps {
   onSearch: (value: string) => void;
+  onChangeCategory: (category: string) => void;
 }
 
-const ResponsiveNavBar: React.FC<ResponsiveNavBarProps> = ({ onSearch }) => {
+const ResponsiveNavBar: React.FC<ResponsiveNavBarProps> = ({ onSearch, onChangeCategory }) => {
   const [drawerVisible, setDrawerVisible] = React.useState<boolean>(false);
 
   const onToggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
   };
 
+  const setOnSelect = ({ key }: any) => {
+    onChangeCategory(key);
+  };
+
   return (
     <CustomHeaderResponsive className="header">
       <Drawer placement="left" closable={false} onClose={onToggleDrawer} visible={drawerVisible}>
-        <Menu defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1">Accesorios para carros</Menu.Item>
-          <Menu.Item key="2">Lifestyle</Menu.Item>
-          <Menu.Item key="3">Ofertas</Menu.Item>
-          <Menu.Item key="4">Novedades</Menu.Item>
+        <Menu defaultSelectedKeys={[CATEGORIES.ACCESSORY]} mode="inline" onSelect={setOnSelect}>
+          <Menu.Item key={CATEGORIES.ACCESSORY}>Accesorios para carros</Menu.Item>
+          <Menu.Item key={CATEGORIES.LIFESTYLE}>Lifestyle</Menu.Item>
+          <Menu.Item key={CATEGORIES.OFFERS}>Ofertas</Menu.Item>
+          <Menu.Item key={CATEGORIES.NEW}>Novedades</Menu.Item>
         </Menu>
         <LoginButton />
       </Drawer>

@@ -2,24 +2,41 @@ import * as React from 'react';
 import SEO from 'src/components/organisms/SEO';
 import { graphql } from 'gatsby';
 import NavBar from 'src/components/molecules/nav-bar';
-
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
 import MainPage from 'src/components/organisms/main';
+import { useSelector, useDispatch } from 'react-redux';
+import { requestProducts } from 'src/actions/redux';
+import { RootState } from 'src/state';
+import { defaultFilter } from 'src/utils/constants/defaultFilter';
 
 const Home: React.FC<IHomeProps> = ({ data }) => {
-  // site metadata coming from gatsby config
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = data.site.siteMetadata.description;
 
-  // states
+  const [filters, setFilters] = React.useState<IFilters>(defaultFilter);
   const [priceValues, setPriceValues] = React.useState<number[]>([20, 50]);
   const onChangePrice = (value: number[]) => setPriceValues(value);
 
+  const products: IProduct[] = useSelector((state: RootState) => state.productsReducer);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(requestProducts(filters));
+  }, [filters]);
+
+  const onSearchCategory = (id: string) => {
+    setFilters((currentFilters) => ({ ...currentFilters, category: id }));
+  };
+
+  const onTypingSearch = (text: string) => {
+    setFilters((currentFilters) => ({ ...currentFilters, text: text }));
+  };
+  console.log(products);
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
-      <NavBar />
+      <NavBar onSearchCategory={onSearchCategory} onTypingSearch={onTypingSearch} />
       <MainPage onChangePrice={onChangePrice} priceValues={priceValues} />
     </React.Fragment>
   );

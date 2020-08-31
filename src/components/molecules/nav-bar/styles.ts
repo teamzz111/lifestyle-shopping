@@ -26,7 +26,6 @@ export const NavActions = styled.div`
   align-items: center;
   @media ${device.mobile} {
     padding: 0;
-    width: 100%;
     justify-content: space-evenly;
   }
 `;
@@ -34,10 +33,6 @@ export const NavActions = styled.div`
 export const NavActionCont = styled.div`
   margin-left: 10px;
   margin-right: 10px;
-  @media ${device.mobile} {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
 `;
 
 export const CustomHeaderResponsive = styled(Header)`
