@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Layout, Menu, Drawer } from 'antd';
+import { Layout, Menu } from 'antd';
 import { device } from 'src/utils/responsiveTemplate';
 
 const { Header } = Layout;

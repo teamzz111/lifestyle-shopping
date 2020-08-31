@@ -13,7 +13,8 @@ export const IconCart = styled(ShoppingCartOutlined)`
 `;
 
 export const ImageLogo = styled.img`
-  width: 100%;
+  width: 280px;
+  height: 236px;
   margin-bottom: 10px;
 `;
 
@@ -22,6 +23,7 @@ export const Text = styled(Paragraph)`
   margin-bottom: 0.01em !important;
   width: 100%;
   color: #929292 !important;
+  text-transform: capitalize;
 `;
 
 export const UnderText = styled(Paragraph)`
@@ -66,5 +68,6 @@ export const ButtonCart = styled(Button)`
 
 export const MainWrapper = styled.div`
   max-width: 18em;
+  min-width: 15em;
   margin: 20px;
 `;
