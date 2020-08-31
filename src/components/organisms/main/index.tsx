@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Layout, Menu } from 'antd';
 import SideMenuLayout from 'src/components/molecules/sideMenu';
-import { categoryOptions } from 'src/pages/resources';
+import { categoryOptions } from 'src/utils/resources';
 import ColorPalette from 'src/components/molecules/colorPalette';
 import SliderMolecule from 'src/components/molecules/sliderPrice';
 import { SliderMainContainer, LayoutStyled } from './styles';

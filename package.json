@@ -20,7 +20,7 @@
     "@ant-design/icons": "^4.2.2",
     "antd": "^4.6.1",
     "babel-plugin-styled-components": "^1.11.1",
-    "gatsby": "^2.24.50",
+    "gatsby": "^2.24.53",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-tslint": "0.0.2",
