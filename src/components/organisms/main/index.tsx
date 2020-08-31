@@ -16,9 +16,11 @@ import 'src/assets/styles/index.css';
 interface IMainPageProps {
   onChangePrice: (e: any) => void;
   priceValues: number[];
+  onOpenModal: () => void;
+  modal: boolean;
 }
 
-const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
+const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues, onOpenModal, modal }) => {
   return (
     <React.Fragment>
       <Layout>
@@ -50,7 +52,12 @@ const MainPage: React.FC<IMainPageProps> = ({ onChangePrice, priceValues }) => {
                 padding: 24,
                 margin: 0,
               }}>
-              <ResponsiveHead />
+              <ResponsiveHead
+                onOpenModal={onOpenModal}
+                modal={modal}
+                onChangePrice={onChangePrice}
+                priceValues={priceValues}
+              />
             </Content>
           </LayoutStyled>
         </Layout>

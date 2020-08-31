@@ -16,6 +16,8 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
 
   const [filters, setFilters] = React.useState<IFilters>(defaultFilter);
   const [priceValues, setPriceValues] = React.useState<number[]>([20, 50]);
+  const [modalFilter, setModalFilter] = React.useState<boolean>(false);
+
   const onChangePrice = (value: number[]) => setPriceValues(value);
 
   const products: IProduct[] = useSelector((state: RootState) => state.productsReducer);
@@ -32,12 +34,22 @@ const Home: React.FC<IHomeProps> = ({ data }) => {
   const onTypingSearch = (text: string) => {
     setFilters((currentFilters) => ({ ...currentFilters, text: text }));
   };
+
+  const onOpenModal = () => {
+    setModalFilter(!modalFilter);
+  };
+
   console.log(products);
   return (
     <React.Fragment>
       <SEO title={siteTitle} description={siteDescription} />
       <NavBar onSearchCategory={onSearchCategory} onTypingSearch={onTypingSearch} />
-      <MainPage onChangePrice={onChangePrice} priceValues={priceValues} />
+      <MainPage
+        onChangePrice={onChangePrice}
+        priceValues={priceValues}
+        onOpenModal={onOpenModal}
+        modal={modalFilter}
+      />
     </React.Fragment>
   );
 };

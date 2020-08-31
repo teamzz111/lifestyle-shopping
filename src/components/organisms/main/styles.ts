@@ -22,6 +22,7 @@ export const MobileContainer = styled.div`
   @media ${device.mobile} {
     display: flex;
     align-items: flex-start;
+    width: 100%;
   }
 `;
 
