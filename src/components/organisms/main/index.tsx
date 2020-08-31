@@ -11,12 +11,14 @@ const { Content, Sider } = Layout;
 
 import 'antd/dist/antd.css';
 import 'src/assets/styles/index.css';
+import Card from 'src/components/atoms/card';
 
-const MainPage: React.FC = () => {
+
+const MainPage: React.FC<DataCard> = ({ data }) => {
   return (
     <React.Fragment>
       <Layout>
-        <Layout>
+        <Layout >
           <Sider width={262} className="site-layout-background">
             <Menu
               mode="inline"
@@ -37,15 +39,22 @@ const MainPage: React.FC = () => {
               </SubMenu>
             </Menu>
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{ padding: '0 24px 24px', backgroundColor: '#ffffff' }}>
             <Content
               className="site-layout-background"
               style={{
                 padding: 24,
                 margin: 0,
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-evenly'
               }}>
-              Content
-            </Content>
+                {
+                  data.map((value: ItemCard) => {
+                    return <Card key={value.id} {...value} />
+                  })
+                }
+              </Content>
           </Layout>
         </Layout>
       </Layout>
